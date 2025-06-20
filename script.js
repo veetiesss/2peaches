@@ -165,3 +165,19 @@ function displayTable() {
     }
 }
 document.addEventListener("DOMContentLoaded", displayTable)
+
+function checkOrientation() {
+  const warning = document.getElementById("orientation-warning");
+  const isPortrait = window.innerHeight > window.innerWidth;
+  if (isPortrait) {
+    warning.classList.add("show");
+    document.body.style.overflow = "hidden"; 
+  } else {
+    warning.classList.remove("show");
+    document.body.style.overflow = ""; 
+  }
+}
+
+window.addEventListener("load", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
